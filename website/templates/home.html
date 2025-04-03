@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="content-container">
+  <h1 align="center">AI News Buddy</h1>
+  <p align="center">
+  </p>
+  <p align="center">
+  </p>
+  
+  <div class="buttons-container">
+    <div class="buttons-div">
+      
+
+      <button class="get-button btn btn-primary">Get Summaries</button>
+    </div>
+    <div class="dropdown">
+      <button
+        class="dropdown-button btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        data-bs-display="static"
+        data-flip="false"
+        aria-expanded="false"
+      >
+        Filter
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><button class="mb-1 dropdown-item">All</button></li>
+        <li><button class="mb-2 dropdown-item">Politics</button></li>
+        <li><button class="mb-3 dropdown-item">Custom Filter</button></li>
+      </ul>
+    </div>
+    <div class="dropdown">
+        <button
+          class="dropdown-button2 btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          data-bs-display="static"
+          data-flip="false"
+          aria-expanded="false"
+        >
+          5
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><button class="mbt-1 dropdown-item">5</button></li>
+          <li><button class="mbt-2 dropdown-item">8</button></li>
+          <li><button class="mbt-3 dropdown-item">10</button></li>
+          <li><button class="mbt-4 dropdown-item">15</button></li>
+        </ul>
+      </div>
+    <input
+        class="custom-input hidden"
+        type="text"
+        placeholder="Enter a custom filter"
+      />
+    
+  </div>
+    <span class="loader hidden"></span>
+    {% for date in unique_dates %}
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ date.strftime('%B %d, %Y') }}</h5>
+            <a href="{{ url_for('views.news_by_date', date=date.strftime('%m-%d-%Y')) }}" class="btn btn-primary">View</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

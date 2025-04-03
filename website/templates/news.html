@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>News for {{ date }}</h1>
+
+{% for news in news_entries %}
+    <div class="card my-3">
+        <div class="card-body">
+            <p class="card-text">{{ news.content | safe }}</p>
+            <button class="btn btn-danger" onclick="deleteNews('{{ news.id }}')">Delete</button>
+        </div>
+    </div>
+{% endfor %}
+
+<a href="{{ url_for('views.home') }}" class="btn btn-secondary">Back to Dates</a>
+
+<script>
+    function deleteNews(newsId) {
+        fetch("/delete-news", {
+            method: "POST",
+            body: JSON.stringify({ newsId: newsId }),
+            headers: { "Content-Type": "application/json" }
+        }).then((_res) => {
+            location.href = "/";
+        });
+    }
+</script>
+
+{% endblock %}
