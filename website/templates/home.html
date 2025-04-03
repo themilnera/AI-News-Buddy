@@ -56,13 +56,15 @@
     
   </div>
     <span class="loader hidden"></span>
-    {% for date in unique_dates %}
-    <div class="card my-3">
-        <div class="card-body">
-            <h5 class="card-title">{{ date.strftime('%B %d, %Y') }}</h5>
-            <a href="{{ url_for('views.news_by_date', date=date.strftime('%m-%d-%Y')) }}" class="btn btn-primary">View</a>
+    <div class="card-container">
+        {% for date in unique_dates %}
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ date.strftime('%B %d, %Y') }}</h5>
+                <a href="{{ url_for('views.news_by_date', date=date.strftime('%m-%d-%Y')) }}" class="btn btn-info">View</a>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

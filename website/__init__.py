@@ -22,7 +22,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix="/")
     #prefix defines the route so prefix /data would have all routes under /data/route
 
-    from .models import User, Note
+    from .models import User
 
     create_database(app)
     #If the db isn't created yet, create it

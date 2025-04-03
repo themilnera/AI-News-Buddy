@@ -7,6 +7,6 @@ def format_news_text(text):
     text = re.sub(r'\*(.*?)\*', r'<em>\1</em>', text)  # Italics
     text = re.sub(r'\n- (.*?)\n', r'\n<ul><li>\1</li></ul>\n', text)  # Lists
     text = re.sub(r'</ul>\n<ul>', '', text)  # Fix nested <ul> tags
-    text = re.sub(r'Article: (https?://\S+)', r'<a href="\1" target="_blank">\1</a>', text)
+    text = re.sub(r'Article: (https?://\S+)', r'<a href="\1" target="_blank">\1</a>', text) # Put a link into an <a> tag
     return text
 

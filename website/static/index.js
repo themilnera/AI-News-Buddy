@@ -1,12 +1,3 @@
-//function deleteNote(noteId){
-//    fetch('/delete-note', {
-//        method: 'POST',
-//        body: JSON.stringify({ noteId: noteId })
-//    }).then((_res) => {
-//        window.location.href="/";
-//    });
-//}
-
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".dropdown-button2");
 const allNews = document.querySelector(".mb-1");

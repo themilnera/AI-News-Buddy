@@ -6,7 +6,6 @@ from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint('auth', __name__)
-#define auth blueprint
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -25,11 +24,7 @@ def login():
             flash("Email not found", category='error')
 
     return render_template("login.html", user=current_user)
-    #you can return variables in the params of the render template
-    #example render_template("login.html", text="text")
-    #flask configures jinja2 template engine automatically
-    #you can go into the login.html file and write {{text}} to access this variable
-    #and you can write expressions with it, {{ if text == "text" }}
+
 
 @auth.route('/logout')
 @login_required
