@@ -79,13 +79,14 @@
 }
 
 .card-container{
-    margin-top: 25px;
+    margin-top: 15px;
     display: flex;
-    flex-flow: row-reverse wrap;
+    flex-flow: row wrap;
     justify-content: center;
-    max-width: 80%;
+    max-width: 100%;
     min-width: 80%;
-    gap: 20px;
+    column-gap: 20px;
+    
 }
 
 .card-text h3{

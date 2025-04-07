@@ -5,7 +5,7 @@ import asyncio
 import httpx
 
 #How many times to retry requests?
-retries = 6
+retries = 8
 
 async def gen_text(prompt, system_prompt, json):
     delay = 3
@@ -20,8 +20,9 @@ async def gen_text(prompt, system_prompt, json):
             print(f"Request failed (attempt {i+1})")
             if i < retries-1:
                 print(f"Retrying in {delay} seconds")
-                await asyncio.sleep(delay) #delay repeated requests
-                delay *=2
+                await asyncio.sleep(delay) #delay repeated 
+                if delay < 12:
+                    delay *=2
             else:
                 raise
 
